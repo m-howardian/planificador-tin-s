@@ -506,7 +506,7 @@ main{padding:18px 20px 44px;min-width:0;display:flex;flex-direction:column;gap:1
   /* los fondos de color son informacion aqui: pastillas y bloques */
   *{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
 
-  :root{ --hour-h:38px; --shadow:none; }
+  :root{ --shadow:none; }   /* --hour-h lo fija ajustarImpresion() */
 
   /* fuera todo lo que no sea el horario */
   .stripe,.rail,.tools,.legend,.alerts,.aviso,.colofon,.vacio,.scrim{display:none!important}
@@ -1223,12 +1223,17 @@ function conflicts(){
 }
 
 /* ---------------- grid range ---------------- */
+/* La rejilla va de la primera clase a la ultima, no de 07:00 a 22:00.
+   Sin materias cargadas cae al rango completo del dia. */
 function gridRange(){
-  var lo = 7*60, hi = 22*60;
-  allBlocks().forEach(function(x){
+  var bs = allBlocks();
+  if(!bs.length) return {lo:7*60, hi:22*60};
+  var lo = 24*60, hi = 0;
+  bs.forEach(function(x){
     lo = Math.min(lo, Math.floor(x.b.i/60)*60);
     hi = Math.max(hi, Math.ceil(x.b.f/60)*60);
   });
+  if(hi - lo < 6*60) hi = lo + 6*60;
   return {lo:lo, hi:hi};
 }
 
@@ -1259,10 +1264,14 @@ function layoutDay(items){
 }
 
 /* ---------------- render: calendar ---------------- */
+/* Alto de una hora en px. La hoja de impresion no puede cambiarlo por CSS
+   porque la posicion de cada bloque se calcula aqui, asi que lo ajusta
+   ajustarImpresion() y mantiene --hour-h en sincronia. */
+var HH = 64;
+
 function renderCal(){
   var range = gridRange();
   var hours = (range.hi - range.lo)/60;
-  var HH = 64;
   var today = new Date().getDay();
   var todayIdx = today === 0 ? -1 : today - 1;
 
@@ -1655,6 +1664,23 @@ byId("btnTheme").addEventListener("click", function(){
 
 byId("btnNew").addEventListener("click", openBlank);
 byId("btnPrint").addEventListener("click", function(){ window.print(); });
+
+/* Alto util de una A4 horizontal con margen de 8mm, menos cabecera,
+   metricas y encabezado de dias. */
+var ALTO_HOJA = 545;
+function ajustarImpresion(){
+  var r = gridRange(), horas = (r.hi - r.lo) / 60;
+  HH = Math.max(24, Math.min(64, Math.floor(ALTO_HOJA / horas)));
+  document.documentElement.style.setProperty("--hour-h", HH + "px");
+  renderCal();
+}
+function restaurarPantalla(){
+  HH = 64;
+  document.documentElement.style.removeProperty("--hour-h");
+  renderCal();
+}
+window.addEventListener("beforeprint", ajustarImpresion);
+window.addEventListener("afterprint", restaurarPantalla);
 byId("btnClear").addEventListener("click", function(){
   if(!state.materias.length) return;
   if(confirm("¿Quitar las " + state.materias.length + " materias del horario? Esta acción no se puede deshacer.")){
