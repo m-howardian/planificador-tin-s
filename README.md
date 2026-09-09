@@ -3,8 +3,8 @@
 Organizador de horarios para la carrera de **Tecnología de la Información** (malla TIN-S 2023) de la
 Universidad de Guayaquil.
 
-Elegís materias de la malla, les asignás un paralelo, y se acomodan solas en un calendario semanal
-que te avisa cuando dos clases se pisan.
+Eliges materias de la malla, les asignas un paralelo, y se acomodan solas en un calendario semanal
+que te avisa cuando dos clases se cruzan.
 
 Es un solo archivo `index.html` sin dependencias ni build. Se abre en cualquier navegador.
 
@@ -16,7 +16,7 @@ Es un solo archivo `index.html` sin dependencias ni build. Se abre en cualquier 
 > **Ciclo I 2026 – 2027**. Esta información cambia de un ciclo a otro: se reasignan docentes, se
 > abren y se cierran paralelos, y se mueven horarios.
 >
-> **Verificá siempre contra el horario oficial del SIUG antes de matricularte.**
+> **Verifica siempre contra el horario oficial del SIUG antes de matricularte.**
 
 ## Qué trae cargado
 
@@ -43,11 +43,11 @@ de exámenes: `151/NO-10-8`, `156/NO-10-8`, `199/VE-1-17`, `621/NO-6-1`, `726/MA
 
 ## Cómo se usa
 
-1. **Malla** — buscás la materia o filtrás por semestre, y le das clic.
+1. **Malla** — buscas la materia o filtras por semestre, y haces clic en ella.
 2. **Paralelos** — se abre la lista de paralelos disponibles con su horario, aula y docente.
-   Filtrás por jornada y elegís uno; se llena todo solo. También podés escribirlo a mano.
+   Filtras por jornada y eliges uno; se llena todo solo. También puedes escribirlo a mano.
 3. **Calendario** — la materia aparece como un bloque de lunes a sábado, entre 07:00 y 22:00.
-   Clic en un bloque para editarlo.
+   Haz clic en un bloque para editarlo.
 
 Si dos clases se superponen, los bloques se marcan en rojo con ⚠, aparece el detalle del cruce
 arriba del calendario, y el contador de **Choques** deja de estar en cero.
