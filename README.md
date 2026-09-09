@@ -1,4 +1,4 @@
-# Planificador TIN-S
+# Planificador de Horarios de Tecnologías de la Información
 
 Organizador de horarios para la carrera de **Tecnología de la Información** (malla TIN-S 2023) de la
 Universidad de Guayaquil.
