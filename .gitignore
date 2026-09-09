@@ -1,0 +1,10 @@
+# temporales
+*.tmp
+*.bak
+~$*
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# PDFs fuente del SIUG (filtrados, no se publican)
+*.pdf
