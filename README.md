@@ -13,8 +13,8 @@ Es un solo archivo `index.html` sin dependencias ni build. Se abre en cualquier 
 ## Advertencia sobre los datos
 
 > Los **horarios, paralelos y docentes** precargados salen de fuentes filtradas del SIUG.
-> **Cuarto semestre** está actualizado con el **Ciclo II 2026 – 2027**; el resto de semestres sigue
-> con datos del **Ciclo I 2026 – 2027**. Esta información cambia de un ciclo a otro: se reasignan
+> **Cuarto semestre** y **Ecuaciones Diferenciales** están actualizados con el **Ciclo II 2026 – 2027**;
+> el resto de materias sigue con datos del **Ciclo I 2026 – 2027**. Esta información cambia de un ciclo a otro: se reasignan
 > docentes, se abren y se cierran paralelos, y se mueven horarios.
 >
 > **Verifica siempre contra el horario oficial del SIUG antes de matricularte.**
@@ -71,6 +71,7 @@ presenciales.
 |---|---|
 | Materias, códigos, créditos, requisitos, modalidad | Malla TIN-S 2023 (SIUG) |
 | Cuarto semestre: paralelos, horarios, aulas y docentes | Horario del nivel 4, Ciclo II 2026 – 2027 |
+| Ecuaciones Diferenciales: horarios y aulas | Horario del nivel 3, Ciclo II 2026 – 2027 |
 | Resto: paralelos, horarios, jornada, aula | Horarios filtrados del Ciclo I 2026 – 2027 |
 | Resto: docentes | Horario de exámenes del primer parcial, Ciclo I 2026 – 2027 |
 

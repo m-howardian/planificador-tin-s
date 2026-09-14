@@ -632,8 +632,8 @@ try{
     <div class="aviso">
       <span class="aviso-tag">Sobre estos datos</span>
       <p>Los <b>horarios, paralelos y docentes</b> que trae cargados provienen de fuentes filtradas del
-      SIUG. <b>Cuarto semestre</b> est&aacute; actualizado con el horario del <b>Ciclo II 2026&ndash;2027</b>.
-      Los dem&aacute;s semestres siguen con datos del <b>Ciclo I 2026&ndash;2027</b>: horarios y paralelos del
+      SIUG. <b>Cuarto semestre</b> y <b>Ecuaciones Diferenciales</b> est&aacute;n actualizados con el horario
+      del <b>Ciclo II 2026&ndash;2027</b>. Las dem&aacute;s materias siguen con datos del <b>Ciclo I 2026&ndash;2027</b>: horarios y paralelos del
       listado de horarios filtrados, y docentes del horario de ex&aacute;menes del primer parcial.
       <b>Esta informaci&oacute;n cambia de un ciclo a otro</b> &mdash; se reasignan docentes, se abren y
       cierran paralelos, y se mueven horarios. Confirma siempre contra el horario oficial del SIUG antes
@@ -801,6 +801,7 @@ var MALLA = [
 
 /* SIUG, 207 paralelos en 61 materias.
    Cuarto semestre (421-425): "Nuevo horario 4to", Ciclo II 2026-2027.
+   Ecuaciones Diferenciales (321): captura del SIUG nivel 3, Ciclo II 2026-2027.
    Resto: horarios y paralelos de "Horarios filtrados" y docentes del
    "Horario de Examenes 1er Parcial", ambos del Ciclo I 2026-2027.
    p=paralelo j=jornada a=aula d=docente m=modalidad
@@ -927,9 +928,9 @@ var PARALELOS = {
   {p:"TIN-S-MA-2-9",j:"MA",a:"",d:"Cabanilla Burgos Cecilia Elizabeth",m:"V",b:[[1,720,840],[3,660,780]]}
  ],
  "321":[
-  {p:"TIN-S-MA-3-1",j:"MA",a:"AULA-2D-103",d:"Maridueña Arroyave Milton Rafael",m:"P",b:[[1,480,600],[3,540,660]]},
-  {p:"TIN-S-NO-3-3",j:"NO",a:"AULA-2D-005",d:"Yturralde Villagomez Juan Carlos",m:"P",b:[[0,1200,1320],[1,1080,1200]]},
-  {p:"TIN-S-NO-3-5",j:"NO",a:"AULA-2A-003",d:"Yturralde Villagomez Juan Carlos",m:"P",b:[[3,1200,1320],[4,1020,1140]]}
+  {p:"TIN-S-MA-3-1",j:"MA",a:"AULA-2D-006",d:"Maridueña Arroyave Milton Rafael",m:"P",b:[[1,420,540],[3,420,540]]},
+  {p:"TIN-S-NO-3-3",j:"NO",a:"AULA-2D-208",d:"Yturralde Villagomez Juan Carlos",m:"P",b:[[0,1140,1260],[4,1020,1140]]},
+  {p:"TIN-S-NO-3-5",j:"NO",a:"AULA-2D-207",d:"Yturralde Villagomez Juan Carlos",m:"P",b:[[3,1140,1260],[4,1140,1260]]}
  ],
  "322":[
   {p:"TIN-S-MA-3-1",j:"MA",a:"AULA-2D-103",d:"Raymondi Lomas William Rafael",m:"P",b:[[1,600,720],[3,660,780]]},
@@ -1140,8 +1141,9 @@ var COLORS = ["#2563C9","#0E8C6E","#7A3FD0","#C02A86","#5C8A16","#B07400","#0E7F
 var DIAS = ["Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"];
 var DIAS_C = ["Lun","Mar","Mié","Jue","Vie","Sáb"];
 var JOR = {MA:"Matutino", VE:"Vespertino", NO:"Nocturno"};
-/* Cuarto semestre se actualizo con el horario del Ciclo II; lo demas es del Ciclo I. */
-var CICLO_II = {"421":1, "422":1, "423":1, "424":1, "425":1};
+/* Cuarto semestre y Ecuaciones Diferenciales se actualizaron con el horario
+   del Ciclo II; lo demas es del Ciclo I. */
+var CICLO_II = {"321":1, "421":1, "422":1, "423":1, "424":1, "425":1};
 function cicloDe(cod){ return CICLO_II[cod] ? "Ciclo II 2026–2027" : "Ciclo I 2026–2027"; }
 var SEM_LABEL = {0:"Componente de idiomas",1:"Primer semestre",2:"Segundo semestre",3:"Tercer semestre",4:"Cuarto semestre",5:"Quinto semestre",6:"Sexto semestre",7:"Séptimo semestre",8:"Octavo semestre",9:"Noveno semestre",10:"Décimo semestre"};
 
