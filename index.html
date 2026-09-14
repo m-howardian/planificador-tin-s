@@ -631,11 +631,13 @@ try{
 
     <div class="aviso">
       <span class="aviso-tag">Sobre estos datos</span>
-      <p>Los <b>horarios, paralelos y docentes</b> que trae cargados provienen de fuentes filtradas
-      del <b>Ciclo I 2026&ndash;2027</b>: los horarios y paralelos del listado de horarios filtrados, y
-      los docentes del horario de ex&aacute;menes del primer parcial. <b>Esta informaci&oacute;n cambia
-      de un ciclo a otro</b> &mdash; se reasignan docentes, se abren y cierran paralelos, y se mueven
-      horarios. Confirma siempre contra el horario oficial del SIUG antes de matricularte.</p>
+      <p>Los <b>horarios, paralelos y docentes</b> que trae cargados provienen de fuentes filtradas del
+      SIUG. <b>Cuarto semestre</b> est&aacute; actualizado con el horario del <b>Ciclo II 2026&ndash;2027</b>.
+      Los dem&aacute;s semestres siguen con datos del <b>Ciclo I 2026&ndash;2027</b>: horarios y paralelos del
+      listado de horarios filtrados, y docentes del horario de ex&aacute;menes del primer parcial.
+      <b>Esta informaci&oacute;n cambia de un ciclo a otro</b> &mdash; se reasignan docentes, se abren y
+      cierran paralelos, y se mueven horarios. Confirma siempre contra el horario oficial del SIUG antes
+      de matricularte.</p>
     </div>
   </main>
 </div>
@@ -658,7 +660,7 @@ try{
         <span class="flabel" id="presetLabel">Paralelos disponibles</span>
         <div class="chips" id="jFilter"></div>
         <div class="presets" id="presets"></div>
-        <p class="note">Datos del Ciclo&nbsp;I 2026&ndash;2027. Pueden cambiar en el ciclo siguiente: verifica contra el horario oficial.</p>
+        <p class="note" id="presetNote">Datos del Ciclo&nbsp;I 2026&ndash;2027. Pueden cambiar en el ciclo siguiente: verifica contra el horario oficial.</p>
       </div>
 
       <div class="fgroup" id="nombreWrap" hidden>
@@ -797,8 +799,10 @@ var MALLA = [
   {c:"110",n:"Inglés IV",cr:3,m:"V",s:0,re:["109"]}
 ];
 
-/* Ciclo I 2026-2027 (SIUG). Horarios y paralelos: "Horarios filtrados".
-   Docentes: "Horario de Examenes 1er Parcial". 207 paralelos, 61 materias.
+/* SIUG, 207 paralelos en 61 materias.
+   Cuarto semestre (421-425): "Nuevo horario 4to", Ciclo II 2026-2027.
+   Resto: horarios y paralelos de "Horarios filtrados" y docentes del
+   "Horario de Examenes 1er Parcial", ambos del Ciclo I 2026-2027.
    p=paralelo j=jornada a=aula d=docente m=modalidad
    b = [diaIndex, minutoInicio, minutoFin]   con 0=Lun ... 5=Sab      */
 var PARALELOS = {
@@ -957,28 +961,28 @@ var PARALELOS = {
   {p:"TIN-S-NO-3-19",j:"NO",a:"",d:"Arias Dominguez Marjorie Tatiana",m:"V",b:[[1,1200,1320],[2,900,1020]]}
  ],
  "421":[
-  {p:"TIN-S-MA-4-1",j:"MA",a:"AULA-2D-007",d:"Ponguillo Intriago Ronald Alberto",m:"P",b:[[1,420,540],[2,420,540]]},
-  {p:"TIN-S-NO-4-3",j:"NO",a:"AULA-2D-001",d:"Montes Briones Jefferson Antonio",m:"P",b:[[0,1200,1320],[1,1080,1200]]},
-  {p:"TIN-S-NO-4-4",j:"NO",a:"AULA-2D-004",d:"Asanza Moreira José Manuel",m:"P",b:[[3,1200,1320],[4,1080,1200]]}
+  {p:"TIN-S-MA-4-1",j:"MA",a:"AULA-2D-204",d:"Ponguillo Intriago Ronald Alberto",m:"P",b:[[1,420,540],[2,480,600]]},
+  {p:"TIN-S-NO-4-3",j:"NO",a:"AULA-2D-212",d:"Montes Briones Jefferson Antonio",m:"P",b:[[0,1140,1260],[1,1020,1140]]},
+  {p:"TIN-S-NO-4-4",j:"NO",a:"AULA-2D-208",d:"Asanza Moreira José Manuel",m:"P",b:[[0,1140,1260],[3,1140,1260]]}
  ],
  "422":[
-  {p:"TIN-S-MA-4-6",j:"MA",a:"",d:"Montenegro Patrel Mauricio Daniel",m:"V",b:[[0,540,660],[3,420,540]]},
-  {p:"TIN-S-NO-4-10",j:"NO",a:"",d:"Quintanilla Castellanos Jorge Steven",m:"V",b:[[1,1080,1200],[5,480,600]]},
-  {p:"TIN-S-NO-4-9",j:"NO",a:"",d:"Quintanilla Castellanos Jorge Steven",m:"V",b:[[3,1200,1320],[4,1200,1320]]}
+  {p:"TIN-S-MA-4-6",j:"MA",a:"",d:"Montenegro Patrel Mauricio Daniel",m:"V",b:[[3,420,540],[4,420,540]]},
+  {p:"TIN-S-NO-4-10",j:"NO",a:"",d:"Quintanilla Castellanos Jorge Steven",m:"V",b:[[1,1080,1200],[4,1080,1200]]},
+  {p:"TIN-S-NO-4-9",j:"NO",a:"",d:"Quintanilla Castellanos Jorge Steven",m:"V",b:[[2,1080,1200],[5,480,600]]}
  ],
  "423":[
-  {p:"TIN-S-MA-4-1",j:"MA",a:"AULA-2D-007",d:"Molina Miranda María Fernanda",m:"P",b:[[1,660,780],[3,660,780]]},
-  {p:"TIN-S-NO-4-3",j:"NO",a:"AULA-2D-001",d:"Alvarado Unamuno Eduardo Antonio",m:"P",b:[[0,1020,1140],[4,1080,1200]]}
+  {p:"TIN-S-MA-4-1",j:"MA",a:"AULA-2D-204",d:"Molina Miranda María Fernanda",m:"P",b:[[0,420,540],[1,540,660]]},
+  {p:"TIN-S-NO-4-3",j:"NO",a:"AULA-2D-212",d:"Alvarado Unamuno Eduardo Antonio",m:"P",b:[[0,1020,1140],[3,1020,1140]]}
  ],
  "424":[
-  {p:"TIN-S-MA-4-1",j:"MA",a:"AULA-2D-007",d:"Barriga Díaz Ronald Alfredo",m:"P",b:[[1,780,900],[4,540,660]]},
-  {p:"TIN-S-NO-4-3",j:"NO",a:"AULA-2D-001",d:"Crespo Mendoza Roberto",m:"P",b:[[1,1200,1320],[2,1080,1200]]},
-  {p:"TIN-S-NO-4-4",j:"NO",a:"AULA-2D-004",d:"Armijos Valarezo Luis Amable",m:"P",b:[[2,1200,1320],[4,1200,1320]]}
+  {p:"TIN-S-MA-4-1",j:"MA",a:"AULA-2D-204",d:"Barriga Díaz Ronald Alfredo",m:"P",b:[[0,540,660],[2,600,720]]},
+  {p:"TIN-S-NO-4-3",j:"NO",a:"AULA-2D-212",d:"Crespo Mendoza Roberto",m:"P",b:[[1,1140,1260],[3,1140,1260]]},
+  {p:"TIN-S-NO-4-4",j:"NO",a:"AULA-2D-208",d:"Armijos Valarezo Luis Amable",m:"P",b:[[2,1020,1140],[3,1020,1140]]}
  ],
  "425":[
-  {p:"TIN-S-MA-4-6",j:"MA",a:"",d:"Ortiz Aguilar Wilber",m:"V",b:[[0,420,540],[3,540,660]]},
-  {p:"TIN-S-MA-4-7",j:"MA",a:"",d:"Giraldo Martínez Ingrid Kathyuska",m:"V",b:[[0,660,780],[1,540,660]]},
-  {p:"TIN-S-NO-4-9",j:"NO",a:"",d:"Montenegro Patrel Mauricio Daniel",m:"V",b:[[4,1080,1200],[5,540,660]]}
+  {p:"TIN-S-MA-4-6",j:"MA",a:"",d:"Ortiz Aguilar Wilber",m:"V",b:[[3,540,660],[4,540,660]]},
+  {p:"TIN-S-MA-4-7",j:"MA",a:"",d:"Giraldo Martínez Ingrid Kathyuska",m:"V",b:[[1,540,660],[3,540,660]]},
+  {p:"TIN-S-NO-4-9",j:"NO",a:"",d:"Montenegro Patrel Mauricio Daniel",m:"V",b:[[2,1200,1320],[4,1080,1200]]}
  ],
  "521":[
   {p:"TIN-S-MA-5-1",j:"MA",a:"AULA-2A-101",d:"Picon Farah Christian",m:"P",b:[[1,600,780]]},
@@ -1136,6 +1140,9 @@ var COLORS = ["#2563C9","#0E8C6E","#7A3FD0","#C02A86","#5C8A16","#B07400","#0E7F
 var DIAS = ["Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"];
 var DIAS_C = ["Lun","Mar","Mié","Jue","Vie","Sáb"];
 var JOR = {MA:"Matutino", VE:"Vespertino", NO:"Nocturno"};
+/* Cuarto semestre se actualizo con el horario del Ciclo II; lo demas es del Ciclo I. */
+var CICLO_II = {"421":1, "422":1, "423":1, "424":1, "425":1};
+function cicloDe(cod){ return CICLO_II[cod] ? "Ciclo II 2026–2027" : "Ciclo I 2026–2027"; }
 var SEM_LABEL = {0:"Componente de idiomas",1:"Primer semestre",2:"Segundo semestre",3:"Tercer semestre",4:"Cuarto semestre",5:"Quinto semestre",6:"Sexto semestre",7:"Séptimo semestre",8:"Octavo semestre",9:"Noveno semestre",10:"Décimo semestre"};
 
 /* Horario preplanificado del usuario (Ciclo I 2026-2027) usado como estado inicial */
@@ -1512,6 +1519,8 @@ function renderPresets(){
   });
   byId("presets").innerHTML = html;
   byId("presetLabel").textContent = "Paralelos disponibles (" + shown + ")";
+  byId("presetNote").textContent = "Datos del " + cicloDe(ui.draft.cod) +
+    ". Pueden cambiar en el ciclo siguiente: verifica contra el horario oficial.";
 }
 function syncModal(){
   byId("mTitle").textContent = ui.draft.nombre || "Materia nueva";
