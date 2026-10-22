@@ -12,10 +12,10 @@ Es un solo archivo `index.html` sin dependencias ni build. Se abre en cualquier 
 
 ## Advertencia sobre los datos
 
-> Los **horarios, paralelos y docentes** precargados salen de fuentes filtradas del SIUG.
-> **Cuarto semestre** y **Ecuaciones Diferenciales** están actualizados con el **Ciclo II 2026 – 2027**;
-> el resto de materias sigue con datos del **Ciclo I 2026 – 2027**. Esta información cambia de un ciclo a otro: se reasignan
-> docentes, se abren y se cierran paralelos, y se mueven horarios.
+> Los **horarios, paralelos, aulas y docentes** son una copia del SIUG del **Ciclo II 2026 – 2027**
+> (Consulta de planificación académica → Ver detalle de los horarios, niveles 1 al 10), tomada el
+> 21 de octubre de 2026. El SIUG cambia durante el ciclo: se reasignan docentes, se abren y cierran
+> paralelos, y se mueven horarios y aulas.
 >
 > **Verifica siempre contra el horario oficial del SIUG antes de matricularte.**
 
@@ -24,10 +24,9 @@ Es un solo archivo `index.html` sin dependencias ni build. Se abre en cualquier 
 | | |
 |---|---|
 | Materias de la malla | 68 (10 semestres + componente de idiomas) |
-| Paralelos con horario | 207, en 61 materias |
-| Bloques de clase | 366 |
-| Paralelos con docente | 200 de 207 |
-| Docentes distintos | 59 |
+| Paralelos con horario | 195, en 61 materias |
+| Bloques de clase | 336 |
+| Paralelos con docente | 195 de 195 |
 
 De cada materia se guarda código, créditos, modalidad, requisitos y semestre. De cada paralelo,
 la jornada (matutino / vespertino / nocturno), el aula, el docente y sus bloques de horario.
@@ -38,9 +37,7 @@ Siete materias no tienen paralelos porque no llevan horario fijo: Servicio Comun
 Prácticas Preprofesionales (827), Trabajo de Titulación (157) y los cuatro niveles de Inglés
 (107 – 110). Esas se agregan a mano.
 
-Otros siete paralelos tienen horario pero quedaron sin docente, porque no aparecen en el horario
-de exámenes: `151/NO-10-8`, `156/NO-10-8`, `199/VE-1-17`, `621/NO-6-1`, `726/MA-7-4`,
-`926/NO-9-1` y `927/NO-9-7`.
+Todos los paralelos traen docente asignado en el SIUG.
 
 ## Cómo se usa
 
@@ -70,14 +67,10 @@ presenciales.
 | Dato | Fuente |
 |---|---|
 | Materias, códigos, créditos, requisitos, modalidad | Malla TIN-S 2023 (SIUG) |
-| Cuarto semestre: paralelos, horarios, aulas y docentes | Horario del nivel 4, Ciclo II 2026 – 2027 |
-| Ecuaciones Diferenciales: horarios y aulas | Horario del nivel 3, Ciclo II 2026 – 2027 |
-| Resto: paralelos, horarios, jornada, aula | Horarios filtrados del Ciclo I 2026 – 2027 |
-| Resto: docentes | Horario de exámenes del primer parcial, Ciclo I 2026 – 2027 |
+| Paralelos, horarios, jornada, aula y docente | SIUG, Ver detalle de los horarios, Ciclo II 2026 – 2027 |
 
-Los PDFs de origen no se versionan (están en `.gitignore`): son documentos filtrados y los datos ya
-quedaron transcritos dentro de `index.html`.
+Los datos quedaron transcritos dentro de `index.html`; los PDFs que se usaron antes no se versionan
+(están en `.gitignore`).
 
-Los nombres de docentes están en mayúscula inicial tal como vienen de la fuente. El horario de
-exámenes trae la mayoría sin tildes, y no se les inventaron: donde falta un acento, falta en el
-original.
+Los nombres de docentes van en mayúscula inicial. El SIUG trae la mayoría sin tildes y no se les
+inventaron, salvo donde una fuente anterior ya traía el nombre acentuado.
